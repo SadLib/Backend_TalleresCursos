@@ -18,5 +18,17 @@ class TallerCreate(BaseModel):
     cupo_total: int
 
 
-class TallerUpdate(TallerCreate):
+class TallerUpdate(BaseModel):
+    nombre: str | None = None
+    descripcion: str | None = None
+    detalles: str | None = None
+    imagen_url: str | None = None
+    modalidad: Literal["presencial", "en_linea", "hibrido"] | None = None
+    ubicacion: str | None = None
+    fecha_inicio: date | None = None
+    fecha_fin: date | None = None
+    hora_inicio: time | None = None
+    hora_fin: time | None = None
+    numero_sesiones: int | None = None
+    cupo_total: int | None = None
     estado: Literal["borrador", "pendiente", "aprobado", "concluido", "cancelado"] | None = None

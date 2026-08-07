@@ -8,6 +8,7 @@ class RegisterRequest(BaseModel):
     correo: EmailStr
     telefono: str | None = None
     password: str
+    roles: list[str] | None = None
 
 
 class LoginRequest(BaseModel):

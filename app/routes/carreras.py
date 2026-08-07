@@ -8,8 +8,8 @@ router = APIRouter(prefix="/api/carreras", tags=["carreras"])
 
 
 @router.get("")
-async def get_all(db: Connection = Depends(get_db), _=Depends(get_current_user)):
-    rows = await db.fetch("SELECT * FROM carreras ORDER BY nombre")
+async def get_all(db: Connection = Depends(get_db)):
+    rows = await db.fetch("SELECT id, nombre FROM carreras ORDER BY nombre")
     return [dict(r) for r in rows]
 
 

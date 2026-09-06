@@ -5,7 +5,6 @@ from app.config.security import decode_token
 
 bearer = HTTPBearer()
 
-
 def get_current_user(credentials: HTTPAuthorizationCredentials = Depends(bearer)):
     try:
         return decode_token(credentials.credentials)

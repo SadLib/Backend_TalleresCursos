@@ -7,7 +7,6 @@ from app.schemas.auth import RegisterRequest, LoginRequest
 
 router = APIRouter(prefix="/api/auth", tags=["auth"])
 
-
 @router.post("/register", status_code=201)
 async def register(body: RegisterRequest, db: Connection = Depends(get_db)):
     existe = await db.fetchrow("SELECT id FROM usuarios WHERE correo=$1", body.correo)

@@ -6,7 +6,6 @@ from app.schemas.instructores import InstructorCreate, InstructorUpdate
 
 router = APIRouter(prefix="/api/instructores", tags=["instructores"])
 
-
 def _fmt_instructor(row: dict) -> dict:
     return {
         "id": row["id"],
@@ -27,7 +26,6 @@ def _fmt_instructor(row: dict) -> dict:
         },
     }
 
-
 @router.get("/me")
 async def get_me(db: Connection = Depends(get_db), current_user: dict = Depends(get_current_user)):
     row = await db.fetchrow(
@@ -39,7 +37,6 @@ async def get_me(db: Connection = Depends(get_db), current_user: dict = Depends(
     if not row:
         raise HTTPException(status_code=404, detail="No tienes perfil de instructor")
     return _fmt_instructor(dict(row))
-
 
 @router.get("")
 async def get_all(db: Connection = Depends(get_db)):

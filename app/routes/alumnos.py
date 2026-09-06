@@ -6,7 +6,6 @@ from app.schemas.alumnos import AlumnoCreate, AlumnoUpdate
 
 router = APIRouter(prefix="/api/alumnos", tags=["alumnos"])
 
-
 @router.get("")
 async def get_all(db: Connection = Depends(get_db), _=Depends(get_current_user)):
     rows = await db.fetch(

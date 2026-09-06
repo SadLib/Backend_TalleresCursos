@@ -19,11 +19,8 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "https://talleres-cursos.vercel.app",
-    ],
-    allow_origin_regex=r"https://talleres-cursos-[a-z0-9]+-neftali-s-projects\.vercel\.app",
-    allow_credentials=True,
+    allow_origins=["*"],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )

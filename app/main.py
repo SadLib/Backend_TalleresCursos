@@ -21,8 +21,8 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "https://talleres-cursos.vercel.app",
-        "https://talleres-cursos-j8rz93jll-neftali-s-projects.vercel.app",
     ],
+    allow_origin_regex=r"https://talleres-cursos-[a-z0-9]+-neftali-s-projects\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
